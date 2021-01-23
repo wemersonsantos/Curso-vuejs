@@ -7,9 +7,9 @@
     </head>
     <body>
         
-        <div id="start">
+        <div id="start"> <!--Arquivo principal do vue, inicialmente será uma div-->
 
-            {{ message }}
+            {{ message }} <!--chamando a varivel-->
 
         </div>
 
@@ -17,7 +17,7 @@
         <script>
 
             let app = new Vue({
-                el: '#start',
+                el: '#start', //chamando o elemento pelo ID, boa pratica ser uma ID
                 data: {
                     message: 'Hello word, Estou usando vue!'
                 }
