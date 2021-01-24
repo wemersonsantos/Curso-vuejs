@@ -11,6 +11,10 @@
 
         <h1>Iae {{name}}</h1>
 
+        <ul>
+            <li v-for="state in states">{{state.nome}}</li><!--percorre o array states, e o state recebe o value-->
+        </ul>
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.js"></script>
@@ -20,13 +24,23 @@
         let app = new Vue({
             el: '#lifecycle',
             data: {
-               name: 'Hcode, porra'
+               name: 'Hcode, Hello',
+               states: []
             },
             beforeCreate(){//Antes da criação da view
                 console.log('beforeCreate');
             },
             created(){//Cria a view
-                console.log('created');
+                
+                fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados').then(response=>{//API do IBGE estados
+                    response.json().then(data=>{//as respostas transforma em JSON, retonra uma promessa tbm
+                        this.states = data;
+                    })
+
+                }).catch(err =>{//se der erro
+                    console.log(err);
+                })
+            
             },
             beforeMount(){//antes da estruturação html
                 console.log('beforeMount');
