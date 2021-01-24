@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passagens de dados</title>
+</head>
+<body>
+
+    <div id="watches">
+
+        <input type="text" v-model='country'>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.js"></script>
+
+    <script>
+
+        let app = new Vue({
+            el: '#watches',
+            data: {
+               country: 'Brasil'
+            },
+            watch: {
+                country: function(newValue){
+                    console.log(newValue);
+                }
+            }
+        
+        })
+
+    </script>
+
+</body>
+</html>
