@@ -12,6 +12,16 @@
        <h2>Nome: {{person.firstName}}</h2>
 
        <h2>Nome Completo: {{fullName}}</h2>
+       <h2>Nome Completo: {{fullName}}</h2>
+       <h2>Nome Completo: {{fullName}}</h2>
+       <h2>Nome Completo: {{fullName}}</h2>
+       <h2>Nome Completo: {{fullName}}</h2>
+       
+       <h2>Nome Completo: {{getfullName()}}</h2>
+       <h2>Nome Completo: {{getfullName()}}</h2>
+       <h2>Nome Completo: {{getfullName()}}</h2>
+       <h2>Nome Completo: {{getfullName()}}</h2>
+       <h2>Nome Completo: {{getfullName()}}</h2>
 
     </div>
 
@@ -27,8 +37,17 @@
                     lastName:'Sindeaux'
                 }
             },
+            
+            methods:{
+                getfullName(){
+                    console.log('methods');//mais pesado
+                return `${this.person.firstName} ${this.person.lastName}`
+                }
+            },
+
             computed:{
                 fullName: function(){
+                    console.log('computed');//são mais leves, salvas na memória cache
                     return `${this.person.firstName} ${this.person.lastName}`
                 }
             }
