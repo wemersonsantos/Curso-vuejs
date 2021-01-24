@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos de Vue.js</title>
+</head>
+<body>
+
+    <div id="lifecycle">
+
+        <h1>Iae {{name}}</h1>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.js"></script>
+
+    <script>
+
+        let app = new Vue({
+            el: '#lifecycle',
+            data: {
+               name: 'Hcode, porra'
+            },
+            beforeCreate(){//Antes da criação da view
+                console.log('beforeCreate');
+            },
+            created(){//Cria a view
+                console.log('created');
+            },
+            beforeMount(){//antes da estruturação html
+                console.log('beforeMount');
+            },
+            mounted(){//cria a estruturação
+                console.log('mounted');
+            },
+            beforeUpdate(){//Antes de receber um dado
+                console.log('beforeUpdate');
+            },
+            updated(){//Quando recebe o dado
+                console.log('updated');
+            },
+            beforeDestroy(){//Antes de destruir a instancia do vue.js
+                console.log('beforeDestroy');
+            },
+            destroyed(){//Quando destroi a instancia do vue.js
+                console.log('destroyed');
+            }
+        
+        })
+
+    </script>
+
+</body>
+</html>
