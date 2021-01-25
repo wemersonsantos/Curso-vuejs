@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretivas do Vue.js</title>
+</head>
+<body>
+
+    <div id="for">
+        
+        <h2>Cidades do Mundo</h2>
+        <ol>
+            <li v-for="city in citie">{{ city }}</li><!--chave valor, funciona como um for. Array-->
+
+            <li v-for='item in cities'>
+                {{item.city}} - {{item.country}}<!--Array com objetos-->
+            </li>
+
+        </ol>
+
+        <h2>Grandes filmes da História</h2>
+        <ul>
+            <li v-for="(picture, index) in movies"><!--Array com index-->
+                {{index}}. {{picture}}
+            </li>
+        </ul>
+
+        <h2>Empresa</h2>
+        <p v-for="(value, key, index) in company">{{key}}:{{value}}</p><!--Procurar a key=(name, year, creater)-->
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.js"></script>
+    
+    <script>
+
+        let app = new Vue({
+            el: '#for',
+            data: {
+                citie: ['New York', 'São paulo', 'Londres','Rio de janeiro'],              
+                cities: [{
+                    city:'Nova Iorque',
+                    country: 'Eua'
+                },{
+                    city:'São Paulo',
+                    country: 'Brasil'
+                },{
+                    city:'Londres',
+                    country: 'Inglaterra'
+                },{
+                    city:'Rio de Janeiro',
+                    country: 'Brasil'
+                }],
+
+                movies: ['Star Wars', 'Jurassic park', "De volta para o futuro"],
+
+                company: {
+                    name: 'Facebook',
+                    year: 2004,
+                    creator: 'Mark'
+                }
+            } 
+        })
+
+    </script>
+
+</body>
+</html>
