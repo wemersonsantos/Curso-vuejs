@@ -13,6 +13,8 @@
 
         <a v-bind:href="url">Site Hcode</a><!--Vincular um valor a uma propriedade (src, hrfe, etc)-->
         <a :href="url">Site Hcode</a><!--forma apreviada-->
+
+        <p v-bind:[arg]="value">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, maiores eligendi. Quisquam, iste officia, quam minima unde fuga inventore eos placeat totam earum adipisci porro nesciunt rerum, illum necessitatibus facilis!</p><!--código mais dinâmico-->
         
     </div>
 
@@ -23,7 +25,9 @@
         let app = new Vue({
             el: '#bind',
             data: {
-                url: 'https://www.hcode.com.br'               
+                url: 'https://www.hcode.com.br',
+                arg: 'title',
+                value: 'paragrafo de exemplo'               
             } 
         })
 
