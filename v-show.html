@@ -9,7 +9,9 @@
 
     <div id="show">
 
-       <h1 v-show="isLogged">Seja bem-vindo à Área Administrativa</h1><!--Utilizado para exibir uma tag HTML-->
+       <h1 v-show="isLogged">V-SHOW Seja bem-vindo à Área Administrativa</h1><!--Mais leve, oculta, muda o CSS display:none, usado para constante mudança-->
+
+       <h1 v-if="isLogged">V-IF Seja bem-vindo à Área Administrativa</h1><!--Mais lento, remove a tag da estrutura, v-if tem q ser usado com certeza quando não a mudança constante do elemento-->
         
     </div>
 
