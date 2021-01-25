@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretivas do Vue.js</title>
+</head>
+<body>
+
+    <div id="once">
+
+        <h1>{{ person.name }}</h1>
+        <div v-once>{{ person.age }}</div><!--O elemento fica estático, o elemento não muda quando atribui novos valores. Aparece, mas não muda-->
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.js"></script>
+    
+    <script>
+
+        let app = new Vue({
+            el: '#once',
+            data: {
+                person:{
+                    name: "Evan You",
+                    age: 28
+                }
+               
+            } 
+        })
+
+    </script>
+
+</body>
+</html>
