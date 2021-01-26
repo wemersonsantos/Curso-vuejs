@@ -13,6 +13,14 @@
         <p @click = "reverseMessage">{{ message }}</p><!--Abreviado-->
         
         <h4 v-on:[eventname] = "reverseMessage">{{ message }}</h4><!--usando uma propriedade, fazendo com que o evento possa ser alterado-->
+
+        <hr>
+
+        <input type="text" placeholder="Filtrar pessoas" v-on:keyup="filtersPersons">
+
+        <ul>
+            <li v-for="person in personsFiltred">{{person}}</li>
+        </ul>
         
     </div>
 
@@ -24,13 +32,31 @@
             el: '#on',
             data: {
                 message: "Vue.js é demais!!!",           
-                eventname: "click"
+                eventname: "click",
+                persons: ['Anthony Rafael', 'João Rangel', 'Galucio Daniel', 'Ronaldo Braz', 'Marcus Ribeiro','Djalma Sindenaux'],
+                personsFiltred: []
                 },
             methods: {
                 reverseMessage(){
                     this.message = this.message.split("").reverse().join("");
+                },
+                filtersPersons(event){
+
+                    this.personsFiltred = this.persons.filter(name => {
+
+                        return name.toUpperCase().includes(event.target.value.toUpperCase());//target significa no input que está ocorrendo
+
+                    })
+
                 }
-            } 
+            
+            }, 
+            created(){
+
+                this.personsFiltred = this.persons;
+
+            }
+            
         })
 
     </script>
