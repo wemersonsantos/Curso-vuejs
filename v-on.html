@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretivas do Vue.js</title>
+</head>
+<body>
+
+    <div id="on"><!--Eventos, lembre-se do addListerEvent-->
+
+        <p v-on:click = "reverseMessage">{{ message }}</p><!--Após o clique, chama o método-->
+        <p @click = "reverseMessage">{{ message }}</p><!--Abreviado-->
+        
+        <h4 v-on:[eventname] = "reverseMessage">{{ message }}</h4><!--usando uma propriedade, fazendo com que o evento possa ser alterado-->
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.js"></script>
+    
+    <script>
+
+        let app = new Vue({
+            el: '#on',
+            data: {
+                message: "Vue.js é demais!!!",           
+                eventname: "click"
+                },
+            methods: {
+                reverseMessage(){
+                    this.message = this.message.split("").reverse().join("");
+                }
+            } 
+        })
+
+    </script>
+
+</body>
+</html>
