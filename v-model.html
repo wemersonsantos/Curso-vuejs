@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretivas do Vue.js</title>
+</head>
+<body>
+
+    <div id="model"><!--Model é mais usado em formulários ou algo parecido-->
+
+        <h3 v-bind:style="{ fontSize: textSize + 'px' }">Hcode treinamentos</h3>
+
+        <input type="text" placeholder="Digite o tamanho" v-model="textSize"><!--alterar diretamente meu atributo-->
+        
+        <h4 v-bind:style="{color : textColor}">Que a Força esteja com você</h4>
+
+        <input type="text" v-model="textColor">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.js"></script>
+    
+    <script>
+
+        let app = new Vue({
+            el: '#model',
+            data: {
+                 textSize: 30,
+                 textColor: 'red'             
+            } 
+        })
+
+    </script>
+
+</body>
+</html>
