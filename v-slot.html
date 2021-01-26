@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretivas do Vue.js</title>
+</head>
+<body>
+
+    <div id="slot"><!--Eventos, lembre-se do addListerEvent-->
+
+       <text-component>
+           <template v-slot:header>
+               <h2>Esse é o cabeçalho do site</h2>
+           </template>
+           <template #paragrafo>
+            Wemerson Santos
+           </template>
+       </text-component><!--Chamando a componente-->
+       <text-component>
+            Glaucio Daniel
+       </text-component>
+       <text-component>
+            Emanuel
+       </text-component>
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.js"></script>
+    
+    <script>
+
+        Vue.component('text-component', {//criar uma componente. O nome da tag, personalizado, senguno a estrutura
+            template: `
+                <div>
+                    <header>
+                        <slot name="header"></slot>
+                    </header>
+                    <p>
+                        <slot name="paragrafo"></slot>    
+                    </p>
+                </div>
+            `
+        })
+
+        let app = new Vue({
+            el: '#slot',
+            data: {
+                
+                }
+        })
+
+    </script>
+
+</body>
+</html>
