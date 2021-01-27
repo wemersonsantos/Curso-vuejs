@@ -11,7 +11,9 @@
 
         <h4 v-upper>{{name}}</h4><!--diretiva global-->
 
-        <h2 v-capitalize>Hello world {{name}}</h2><!--diretiva local-->
+        <!--<h2 v-capitalize>Hello world {{name}}</h2>diretiva local-->
+        
+        <h2 v-custon> {{name}}</h2>
 
     </div>
 
@@ -33,7 +35,8 @@
                name:'Hcode'
             },
             directives:{//criação diretiva local
-
+                /*
+                Funçoes para diretivas, ciclo de vida delas
                 capitalize: {//reescrever o(s) nome(s) com a primeira letra maiuscula
                 bind(element){
                     console.log("BIND - Fui vinvulado a um elemento");
@@ -61,7 +64,20 @@
                         console.log("COMPONENT - O componente foi atualizada");
                     }
 
-                } 
+                },
+                */
+                custon: {
+                    inserted(element, binding, vnode){
+                        console.log(element, binding, vnode);
+
+                        element.style.color = "red";
+                    }
+                },
+                update(element, binding, vnode, oldVnode){
+                    console.log(vnode, oldVnode);
+
+                    element.style.textDecoration = 'underline';
+                }
             }
             
         })
