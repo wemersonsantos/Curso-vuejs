@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretivas Personalizadas</title>
+</head>
+<body>
+
+    <div id="directives">
+
+        <h4 v-upper>{{name}}</h4><!--diretiva global-->
+
+        <h2 v-capitalize>hello world super mario</h2><!--diretiva local-->
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.js"></script>
+    
+    <script>
+
+        Vue.directive('upper', {//criação diretiva global
+            inserted(el){//aplicar na hora q for chamada
+
+                el.innerText = el.innerText.toUpperCase();
+
+            }
+        })
+
+        let app = new Vue({
+            el: '#directives',
+            data: {
+               name:'Hcode'
+            },
+            directives:{//criação diretiva local
+                capitalize: function(element){//reescrever o(s) nome(s) com a primeira letra maiuscula
+
+                    let words = element.innerText.split(' ');
+
+                    words.forEach((text, index) => {
+
+                        words[index] = text.charAt(0).toUpperCase() + text.slice(1)//pega a priemira letra, vira maiuscula, depois ignora a priemira letra minuscula e concatena com as demais
+
+                    });
+
+                    element.innerText = words.join(" ");//junta tudo
+
+               } 
+            }
+            
+        })
+
+    </script>
+
+</body>
+</html>
