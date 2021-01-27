@@ -13,7 +13,9 @@
 
         <!--<h2 v-capitalize>Hello world {{name}}</h2>diretiva local-->
         
-        <h2 v-custon> {{name}}</h2>
+        <!--<h2 v-custon> {{name}}</h2>-->
+
+        <h2 v-custon="{ direction: argumento, distance }">{{name}}</h2>
 
     </div>
 
@@ -29,10 +31,38 @@
             }
         })
 
+        function setDirection(element, binding){
+
+            element.style.margin = 0;
+
+            let direction = binding.value.direction.toLowerCase();
+            let value = binding.value.distance;
+
+            switch (direction){
+
+                case 'left':
+                case 'right':
+                case 'bottom':
+                case 'top':
+                    let newDirection = direction.charAt(0).toUpperCase() + direction.slice(1);
+
+                    eval(`element.style.margin${newDirection} = value + 'px'`);
+                break;
+
+                default:
+                    console.log("Erro");
+            }
+
+            console.log(element, binding);
+
+        }
+
         let app = new Vue({
             el: '#directives',
             data: {
-               name:'Hcode'
+               name:'Hcode',
+               argumento: 'left',
+               distance: 150
             },
             directives:{//criação diretiva local
                 /*
@@ -66,7 +96,7 @@
 
                 },
                 */
-                custon: {
+                /*custon: {
                     inserted(element, binding, vnode){
                         console.log(element, binding, vnode);
 
@@ -77,7 +107,16 @@
                     console.log(vnode, oldVnode);
 
                     element.style.textDecoration = 'underline';
+                }*/
+                custon: {
+                    inserted(element, binding, vnode){
+                        setDirection(element, binding);
+                    }
+                },
+                update(element, binding, vnode, oldVnode){
+                    setDirection(element, binding);
                 }
+
             }
             
         })
