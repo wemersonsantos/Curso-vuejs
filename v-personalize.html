@@ -11,7 +11,7 @@
 
         <h4 v-upper>{{name}}</h4><!--diretiva global-->
 
-        <h2 v-capitalize>hello world super mario</h2><!--diretiva local-->
+        <h2 v-capitalize>Hello world {{name}}</h2><!--diretiva local-->
 
     </div>
 
@@ -33,8 +33,13 @@
                name:'Hcode'
             },
             directives:{//criação diretiva local
-                capitalize: function(element){//reescrever o(s) nome(s) com a primeira letra maiuscula
 
+                capitalize: {//reescrever o(s) nome(s) com a primeira letra maiuscula
+                bind(element){
+                    console.log("BIND - Fui vinvulado a um elemento");
+                },
+                inserted(element){
+                    console.log("INSERTED - O elemento foi inserido na página");
                     let words = element.innerText.split(' ');
 
                     words.forEach((text, index) => {
@@ -45,7 +50,18 @@
 
                     element.innerText = words.join(" ");//junta tudo
 
-               } 
+                    },
+                    update(element){
+                        console.log("UPDATE - O elemento foi atualizado");
+                    },
+                    unbind(element){
+                        console.log("UNBIND - O elemento foi desvinculado");
+                    },
+                    componentUpdated(element){
+                        console.log("COMPONENT - O componente foi atualizada");
+                    }
+
+                } 
             }
             
         })
