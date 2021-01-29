@@ -1,0 +1,23 @@
+{
+  "name": "Curso-vuejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wemersonsantos/Curso-vuejs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wemersonsantos/Curso-vuejs/issues"
+  },
+  "homepage": "https://github.com/wemersonsantos/Curso-vuejs#readme",
+  "dependencies": {
+    "bootstrap": "^4.0.0"
+  }
+}
