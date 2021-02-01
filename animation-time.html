@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animações - Animate (Time)</title>
+    <link rel="stylesheet" href="node_modules/animate.css/animate.min.css"><!--Animate.css, biblioteca de animações-->
+</head>
+<body>
+
+    <div id="animations-time">
+
+        <!-- :Duration = tanto o tempo de inicio quanto o de final são os mesmo
+        <transition
+        enter-active-class="animate__animated animate__backInDown"
+        leave-active-class="animate__animated animate__bounceOutLeft"
+        :duration='500'>
+
+            <h2 v-if="show">Hcode Treinamentos Animaçoes</h2>
+        </transition>
+        -->
+        <transition
+        enter-active-class="animate__animated animate__rollIn"
+        leave-active-class="animate__animated animate__zoomOut"
+        :duration='{ enter:800, leave:500 }'><!--Passando um objeto, controlando o inicio e final-->
+
+            <h2 v-if="show">Hcode Treinamentos Animaçoes</h2>
+        </transition>
+
+        <button @click="show = !show">Realizar a animação</button>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.js"></script>
+    
+    <script>
+   
+        let app = new Vue({
+            el: '#animations-time',
+            data: {
+                show: true
+            },
+           
+        })
+
+    </script>
+
+</body>
+</html>
