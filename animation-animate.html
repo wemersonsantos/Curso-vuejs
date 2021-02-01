@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animações - Animate</title>
+    <link rel="stylesheet" href="node_modules/animate.css/animate.min.css"><!--Animate.css, biblioteca de animações-->
+</head>
+<body>
+
+    <div id="animations-animate">
+
+        <transition
+        enter-active-class="animate__animated animate__fadeInLeft"
+        leave-active-class="animate__animated animate__rotateOut"><!--name é opcional, os outros não, são obrigatórios-->
+
+            <h2 v-if="show">Hcode Treinamentos Animaçoes</h2>
+        </transition>
+
+        <button @click="show = !show">Realizar a animação</button>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.js"></script>
+    
+    <script>
+   
+        let app = new Vue({
+            el: '#animations-animate',
+            data: {
+                show: true
+            },
+           
+        })
+
+    </script>
+
+</body>
+</html>
