@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+    <link rel="stylesheet" href="node_modules/animate.css/animate.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+    <body>
+
+        <div id="events">
+
+            <div class="container">
+
+                 <form action="" class="form" v-on:submit.prevent>
+                    
+                     </div>                       
+                 </form> 
+
+                 <div class="form-group">
+                     <label>Pressione as teclas abaixo</label>
+
+                     <input type="text" class="form-control" placeholder="Pressione Ctrl" @keydown.ctrl="exec"> 
+                     <input type="text" class="form-control" placeholder="Pressione Alt" @keydown.alt="exec"> 
+                     <input type="text" class="form-control" placeholder="Pressione Shift" @keydown.shift="exec"> 
+                     <input type="text" class="form-control" placeholder="Pressione Meta" @keydown.meta="exec"> 
+                     
+                 </div>
+
+            </div>
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.js"></script>
+        
+        <script>
+    
+            let app = new Vue({
+                el: '#events',
+                data: {
+                    
+                },
+            methods: {
+                alertM(){
+                    alert('Olá');
+                },
+                exec(e){
+                    console.log(e.key);//.key retorna a tecla pressionada
+                }
+            }
+            })
+
+        </script>
+
+    </body>
+</html>
