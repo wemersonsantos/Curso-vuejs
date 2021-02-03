@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+    <link rel="stylesheet" href="node_modules/animate.css/animate.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+    <body>
+
+        <div id="events">
+
+            <div :style="{backgroundColor: background, width: '200px', height: '200px'}" v-on='{mouseenter:changeColor, mouseout:changeColor}'></div>
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6/dist/vue.js"></script>
+        
+        <script>
+    
+            let app = new Vue({
+                el: '#events',
+                data: {
+                   background: 'blue' 
+                },
+            methods: {
+                changeColor(){
+                    let backgroundColor = (this.background == 'blue') ? 'red' : 'blue';
+
+                    this.background = backgroundColor;
+                }
+
+            }
+            })
+
+        </script>
+
+    </body>
+</html>
