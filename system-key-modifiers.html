@@ -13,22 +13,26 @@
 
             <div class="container">
 
-                 <form action="" class="form" v-on:submit.prevent>
-                    
-                     </div>                       
-                 </form> 
+                <form action="" class="form" v-on:submit.prevent>
 
-                 <div class="form-group">
-                     <label>Pressione as teclas abaixo</label>
-
-                     <input type="text" class="form-control" placeholder="Pressione Ctrl" @keydown.ctrl="exec"> 
-                     <input type="text" class="form-control" placeholder="Pressione Alt" @keydown.alt="exec"> 
-                     <input type="text" class="form-control" placeholder="Pressione Shift" @keydown.shift="exec"> 
-                     <input type="text" class="form-control" placeholder="Pressione Meta" @keydown.meta="exec"> 
-                     
-                 </div>
-
+                    <div class="form-group">
+                        <label>Pressione as teclas abaixo</label>
+   
+                        <input type="text" class="form-control" placeholder="Pressione Ctrl" @keydown.ctrl="exec"> 
+                        <input type="text" class="form-control" placeholder="Pressione Alt" @keydown.alt="exec"> 
+                        <input type="text" class="form-control" placeholder="Pressione Shift" @keydown.shift="exec"> 
+                        <input type="text" class="form-control" placeholder="Pressione Meta" @keydown.meta="exec"> 
+                        
+                    </div>
+                </form>
+                <div class="row">
+                    <div class="col" @click.ctrl.exact="toggleClass">1</div><!--.exact é necessário pressionar o crtl-->
+                    <div class="col" @click.ctrl.exact="toggleClass">2</div>
+                    <div class="col" @click.ctrl.exact="toggleClass">3</div>
+                    <div class="col" @click.ctrl.exact="toggleClass">4</div>
+                </div>
             </div>
+        </div>   
 
         </div>
 
@@ -47,6 +51,15 @@
                 },
                 exec(e){
                     console.log(e.key);//.key retorna a tecla pressionada
+                },
+                toggleClass(event){
+                    let el = event.target;
+
+                    let method = (el.classList.contains('bg-info')) ? 'remove' : 'add';
+
+                    eval(`el.classList.${method}('bg-info')`);
+
+                    
                 }
             }
             })
